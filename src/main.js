@@ -3,6 +3,9 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
+import 'S/reset.css'
+import 'S/border.css'
+import './assets/css/iconfont.css'
 import fastClick from 'fastclick'
 
 Vue.config.productionTip = false

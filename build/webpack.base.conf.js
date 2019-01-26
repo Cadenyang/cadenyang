@@ -36,11 +36,12 @@ module.exports = {
     alias: {
       'vue$': 'vue/dist/vue.esm.js',
       '@': resolve('src'),
+      'S': resolve('src/assets/css'),
     }
   },
   module: {
     rules: [
-      ...(config.dev.useEslint ? [createLintingRule()] : []),
+      // ...(config.dev.useEslint ? [createLintingRule()] : []),
       {
         test: /\.vue$/,
         loader: 'vue-loader',
