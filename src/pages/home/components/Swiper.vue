@@ -40,7 +40,7 @@ export default {
 .swiper-container{
     overflow:hidden
     width:100%
-    height:0;
+    height:25px;
     padding-bottom:25%
     background:#eee
 }
