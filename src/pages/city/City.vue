@@ -2,8 +2,8 @@
     <div>
         <city-header></city-header>
         <city-search></city-search>
-        <city-list :hot="hotCities" :cities="allCities"></city-list>
-        <city-alphabet :cities="allCities"></city-alphabet>
+        <city-list :hot="hotCities" :cities="allCities" :letter="letter"></city-list>
+        <city-alphabet :cities="allCities" @change="handleChange"></city-alphabet>
     </div>
 </template>
 <script>
@@ -24,7 +24,8 @@ export default {
     data () {
         return {
             hotCities: [],
-            allCities: {}
+            allCities: {},
+            letter: ''
         }
     },
     mounted () {
@@ -37,11 +38,11 @@ export default {
                 if(res.data && res.success == true){
                     this.hotCities = res.data.hotCities
                     this.allCities = res.data.cities
-                    // this.iconList = res.data.iconList
-                    // this.recommendList = res.data.recommendList
-                    // this.weekendList = res.data.weekendList
                 }
             })
+        },
+        handleChange (letter) {
+            this.letter = letter
         }
     }
 }
