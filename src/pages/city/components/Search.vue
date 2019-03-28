@@ -5,7 +5,7 @@
         </div>
         <div v-show="keyword" class="search-content" ref="search">
             <ul>
-                <li class="search-item border-bottom" v-for="item of list" :key="item.id">{{ item.name }}</li>
+                <li class="search-item border-bottom" v-for="item of list" :key="item.id" @click="handleCity(item.name)">{{ item.name }}</li>
                 <li class="search-item border-bottom" v-show="hasNoData">暂无数据</li>
             </ul>
         </div>
@@ -53,7 +53,13 @@ export default {
         hasNoData () {
              return !this.list.length
         }
-    }
+    },
+    methods: {
+        handleCity (city) {
+            this.$store.commit('changeCity', city)
+            this.$router.push('/')
+        }
+    }   
 }
 </script>
 <style lang="stylus" scoped>

@@ -5,14 +5,14 @@
                 <div class="title border-topbottom">您的位置</div>
                     <div class="button-list">
                         <div class="button-wipper">
-                            <div class="button">北京</div>
+                            <div class="button">{{ this.$store.state.city }}</div>
                         </div>
                     </div>
             </div>
             <div class="area">
                 <div class="title border-topbottom">热门城市</div>
                     <div class="button-list">
-                        <div class="button-wipper" v-for="item of hot" :key="item.id">
+                        <div class="button-wipper" v-for="item of hot" :key="item.id" @click="handleCity(item.name)">
                             <div class="button">{{ item.name }}</div>
                         </div>
                     </div>
@@ -24,6 +24,7 @@
                             class="item border-bottom" 
                             v-for="innerItem of item" 
                             :key="innerItem.id"
+                            @click="handleCity(innerItem.name)"
                         >{{ innerItem.name}}</div>
                 </div>
             </div>
@@ -49,6 +50,12 @@ export default {
             if(this.letter) this.scroll.scrollToElement(element)
         }
     },
+    methods: {
+        handleCity (city) {
+            this.$store.commit('changeCity', city)
+            this.$router.push('/')
+        }
+    }
 }
 </script>
 <style lang="stylus" scoped>
