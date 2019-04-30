@@ -6,7 +6,7 @@
                 <img class="item-img" :src="item.imgUrl"/>
                 <div class="item-info">
                     <p class="item-title">{{ item.title }}</p>
-                    <p class="item-content">{{ item.contentStart }}{{ item.title }}{{ item.contentEnd }}</p>
+                    <p class="item-content">{{ item.contentStart }}{{ item.desc }}{{ item.contentEnd }}</p>
                     <p class="item-price">{{ item.price }}</p>
                 </div>
             </router-link>
